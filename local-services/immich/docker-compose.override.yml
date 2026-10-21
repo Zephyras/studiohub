@@ -1,0 +1,16 @@
+# studiohub 덮어쓰기 — docker compose 가 같은 폴더의 docker-compose.yml(릴리스 원본)과 자동으로 합친다.
+# 1) ML 컨테이너를 CUDA 이미지 + GPU 예약으로 (RTX 5070 Ti, Docker Desktop WSL2)
+# 2) Postgres 데이터를 Windows 바인드 마운트 대신 Docker 볼륨에
+services:
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}-cuda
+    extends:
+      file: hwaccel.ml.yml
+      service: cuda
+
+  database:
+    volumes:
+      - immich-pgdata:/var/lib/postgresql/data
+
+volumes:
+  immich-pgdata:

@@ -1,0 +1,13 @@
+# studiohub 덮어쓰기 — setup.ps1 이 AppFlowy-Cloud/ 클론 안으로 복사하고, docker compose 가 자동으로 합친다.
+# 2026-10-21: MinIO 가 Docker Hub·quay.io 공개 이미지를 내렸다(pull access denied / 401). Chainguard 가 소스에서 빌드해
+# 공개하는 MinIO(RELEASE.2026-09-22, AGPLv3)를 쓴다. 비root(nonroot) 기본이라 /data 볼륨 권한 때문에 root 로 돌리고,
+# 이미지에 curl 이 없어 healthcheck 는 bash /dev/tcp 로 바꾼다.
+services:
+  minio:
+    image: cgr.dev/chainguard/minio:latest
+    user: "0:0"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/9000' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

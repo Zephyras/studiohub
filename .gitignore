@@ -1,0 +1,66 @@
+# 신규 프로젝트 공통 ignore 패턴
+# 언어별 추가 패턴은 onboarding 시 사용자가 보강
+
+# 로그
+*.log
+**/logs/
+!.harness/events.log   # events.log 헤더는 보일러로 추적
+
+# 빌드 결과
+dist/
+build/
+out/
+.next/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# 의존성
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+pubspec.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 환경변수 (Secret)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Harness workspace (선택: 민감 정보 검토 후 결정)
+# .harness/events.log
+# .harness/_workspace/tasks/*/05_worklog.md
+
+# Obsidian (이 폴더가 vault 가 아니지만 혹시 모를 캐시)
+.obsidian/workspace.json
+.obsidian/cache/
+
+# Junction 타겟 (junction 자체는 무시 안 해도 되지만 broken link 방지)
+# 필요 시 추가
+
+# studiohub
+.state/
+studiohub.env
+
+# local-services 사본(공개 저장소용) — 업스트림 클론·내려받은 compose·.env 는 제외
+local-services/appflowy/AppFlowy-Cloud/
+local-services/immich/docker-compose.yml
+local-services/immich/hwaccel.ml.yml
+local-services/immich/example.env
+local-services/**/.env
+
+# 작업공간 전용(공개 저장소 제외): 에이전트 가이드·하네스·개인 설계 메모
+CLAUDE.md
+.claude/
+.harness/
+docs/DESIGN.md
