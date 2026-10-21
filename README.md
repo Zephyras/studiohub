@@ -10,6 +10,17 @@
 도감 문서 (Markdown)            ──dex board / gallery──▶  AppFlowy 그리드(썸네일 열)·그림판 페이지
 ```
 
+## 화면
+
+수집형 드래곤 게임의 그림 348장을 넣은 모습입니다.
+
+| | |
+|---|---|
+| **Immich 분류 앨범** — `dex albums` 가 종류·단계·포즈·속성·등급·서식지·종별로 57개 앨범을 만든다 ![Immich 앨범](docs/img/immich-albums.jpg) | **종별 앨범** — 한 종의 단계·포즈·초상이 한곳에 ![종별 앨범](docs/img/immich-album-white.jpg) |
+| **자연어 검색** — 다국어 CLIP 으로 "잠자는 검은 용" ![검색](docs/img/immich-search.jpg) | **AppFlowy 도감 그리드** — 게임 데이터·자산 현황이 행으로 ![도감 그리드](docs/img/appflowy-dex-grid.jpg) |
+| **그림(미디어) 열** — Immich 공유 링크 썸네일이 셀에 바로 보인다 ![그림 열](docs/img/appflowy-dex-grid-media.jpg) | **도감 그림판 페이지** — 항목마다 단계별 그림을 이미지 블록으로 ![그림판](docs/img/appflowy-dex-gallery.jpg) |
+| **지시 로그 그리드** — Markdown 표가 행으로 (upsert) ![지시 로그](docs/img/appflowy-directives.jpg) | |
+
 ## 요구 사항
 
 - Python 3.11 이상 (표준 라이브러리만 씁니다)
